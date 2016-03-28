@@ -1,0 +1,11 @@
+<h3>Edit Game</h3>
+
+<% if @game.errors.any? %>
+<%= erb :"_errors", locals: {errors: @game.errors} %>
+<% end %>
+
+<form method="POST" action="/games/<%= @game.id %>">
+  <input type="hidden" name="_method" value="PUT">
+  <input type="text" name="game[name]" value="<%= @game.name %>">
+  <input type="submit">
+</form>
