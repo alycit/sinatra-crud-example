@@ -12,6 +12,7 @@ post '/games' do
   @game = Game.new(params[:game])
 
   if @game.save
+    current_user.games << @game
     redirect '/games'
   else
     erb :"games/new"

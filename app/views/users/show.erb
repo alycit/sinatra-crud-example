@@ -1,0 +1,13 @@
+<h3>Profile Page</h3>
+
+<h4><%= @user.name %>'s Games</h4>
+
+<% if @user.games.any? %>
+<ul>
+  <% @user.games.each do |game|%>
+  <li><%= game.name %></li>
+  <% end %>
+</ul>
+<% else %>
+  <p>This user hasn't created any games</p>
+<% end %>
