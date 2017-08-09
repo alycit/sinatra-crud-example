@@ -1,13 +1,11 @@
-before '/games/*' do
-  authenticate!
-end
-
 get '/games' do
   @games = Game.all
   erb :"games/index"
 end
 
 get '/games/new' do
+  authenticate!
+
   @game = Game.new
   erb :"games/new"
 end
@@ -31,6 +29,7 @@ get '/games/:id' do
 end
 
 get '/games/:id/edit' do
+  authenticate!
 
   @game = Game.find_by(id: params[:id])
 
@@ -39,6 +38,8 @@ get '/games/:id/edit' do
 end
 
 put '/games/:id' do
+  authenticate!
+
   @game = Game.find_by(id: params[:id])
 
   redirect '/not_authorized' if current_user != @game.user
@@ -51,6 +52,8 @@ put '/games/:id' do
 end
 
 delete '/games/:id' do
+  authenticate!
+
   @game = Game.find_by(id: params[:id])
 
   redirect '/not_authorized' if current_user != @game.user
