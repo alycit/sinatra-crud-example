@@ -1,9 +1,5 @@
 <h3>Edit Game</h3>
 
-<% if @errors %>
-<%= erb :"_errors", locals: {errors: @errors} %>
-<% end %>
-
 <form method="POST" action="/games/<%= @game.id %>">
   <input type="hidden" name="_method" value="PUT">
   <div class="form-field">

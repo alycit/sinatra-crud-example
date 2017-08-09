@@ -1,9 +1,5 @@
 <h3>New Game</h3>
 
-<% if @errors %>
-<%= erb :"_errors", locals: {errors: @errors} %>
-<% end %>
-
 <form method="POST" action="/games">
   <div class="form-field">
     <input type="text" name="game[name]" value="<%= @game.name %>" placeholder="name">

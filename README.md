@@ -8,5 +8,6 @@ In this branch you will find:
 - Create and Read for User
 - Full authentication (login / logout)
 - Full authorization (locking down the front end and back end)
-- Error handling
+
+This is a starter to demonstrate / practice error handling in your routes.
 

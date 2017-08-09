@@ -8,9 +8,6 @@ post '/sessions' do
   if @user && @user.authenticate(params[:password])
     session[:user_id] = @user.id
     redirect '/'
-  else
-    @message = "Either you username or password was wrong"
-    erb :"session/new"
   end
 
 end
