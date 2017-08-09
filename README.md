@@ -1,11 +1,10 @@
 # Sinatra Crud Example
 
-This is a example with users and games.  A user has many games.  
+This is a example with a user model
 
 In this branch you will find:
 
-- Full crud for both users and games
+- Create and Read for User
 - Full authentication (login / logout)
-- Full authorization (locking down the front end and back end)
 - Error handling
 
