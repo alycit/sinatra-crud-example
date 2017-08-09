@@ -1,5 +1,6 @@
 <h3><%= @game.name %></h3>
 
+<p><%= @game.description %></p>
 <a href="/games/<%= @game.id %>/edit">Edit</a>
 
 <form method="POST" action="/games/<%= @game.id %>">

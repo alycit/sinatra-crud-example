@@ -5,6 +5,11 @@
 <% end %>
 
 <form method="POST" action="/games">
-  <input type="text" name="game[name]" value="<%= @game.name %>">
+  <div class="form-field">
+    <input type="text" name="game[name]" value="<%= @game.name %>" placeholder="name">
+  </div>
+  <div class="form-field">
+    <textarea rows="15" cols="75" name="game[description]" placeholder="description"><%= @game.description %></textarea>
+  </div>
   <input type="submit">
 </form>
