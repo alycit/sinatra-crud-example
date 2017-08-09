@@ -1,5 +1,6 @@
 <h3><%= @game.name %></h3>
 
+<p><%= @game.description %></p>
 
 <% if authorized?(@game.user) %>
 <a href="/games/<%= @game.id %>/edit">Edit</a>
