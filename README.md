@@ -6,6 +6,7 @@ In this branch you will find:
 
 - Full crud for both users and games
 - Full authentication (login / logout)
-- Full authorization (locking down the front end and back end)
 - Error handling
+
+This can be used as a starting place to practice / show full authorization
 

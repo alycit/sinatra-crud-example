@@ -4,13 +4,11 @@ get '/games' do
 end
 
 get '/games/new' do
-  authenticate!
   @game = Game.new
   erb :"games/new"
 end
 
 post '/games' do
-  authenticate!
   @game = Game.new(params[:game])
 
   if @game.save
@@ -28,16 +26,12 @@ get '/games/:id' do
 end
 
 get '/games/:id/edit' do
-  authenticate!
   @game = Game.find_by(id: params[:id])
-  authorize!(@game.user)
   erb :"games/edit"
 end
 
 put '/games/:id' do
-  authenticate!
   @game = Game.find_by(id: params[:id])
-  authorize!(@game.user)
 
   if @game.update(params[:game])
     redirect '/games'
@@ -48,9 +42,7 @@ put '/games/:id' do
 end
 
 delete '/games/:id' do
-  authenticate!
   @game = Game.find_by(id: params[:id])
-  authorize!(@game.user)
   @game.destroy
   redirect '/games'
 end
