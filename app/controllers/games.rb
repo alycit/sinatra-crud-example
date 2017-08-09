@@ -14,6 +14,7 @@ post '/games' do
   if @game.save
     redirect '/games'
   else
+    @errors = @game.errors.full_messages
     erb :"games/new"
   end
 end
@@ -34,6 +35,7 @@ put '/games/:id' do
   if @game.update_attributes(params[:game])
     redirect '/games'
   else
+    @errors = @game.errors.full_messages
     erb :"games/edit"
   end
 end
