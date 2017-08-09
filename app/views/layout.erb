@@ -24,9 +24,13 @@
       <ul>
         <% if logged_in? %>
         <li><a href="/users/<%= current_user.id %>">Hello, <%= current_user.name %></a></li>
-        <li><a href="/logout">Logout</a></li>
+        <li><form method="POST" action="/sessions">
+              <input type="hidden" name="_method" value="DELETE" />
+              <input type="submit" class="button" value="Logout" />
+            </form>
+        </li>
         <% else %>
-        <li><a href="/login">Login</a></li>
+        <li><a href="/sessions/new">Login</a></li>
         <li><a href="/users/new">Sign Up</a></li>
         <% end %>
       </ul>

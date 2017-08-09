@@ -1,7 +1,7 @@
 <h3>Edit Game</h3>
 
-<% if @game.errors.any? %>
-<%= erb :"_errors", locals: {errors: @game.errors} %>
+<% if @errors %>
+<%= erb :"_errors", locals: {errors: @errors} %>
 <% end %>
 
 <form method="POST" action="/games/<%= @game.id %>">
