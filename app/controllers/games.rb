@@ -5,20 +5,38 @@ end
 
 get '/games/new' do
   authenticate!
+
   @game = Game.new
-  erb :"games/new"
+
+  if request.xhr?
+    erb :"/games/_form", layout: false, locals: {errors: nil, game: @game}
+  else
+    erb :"games/new"
+  end
 end
 
 post '/games' do
   authenticate!
+
   @game = Game.new(params[:game])
 
-  if @game.save
-    current_user.games << @game
-    redirect '/games'
+  sleep 3
+  if request.xhr?
+    if @game.save
+      current_user.games << @game
+      erb :"/games/_game", locals: {game: @game}, layout: false
+    else
+      status 422
+      body "Something bad happened"
+    end
   else
-    @errors = @game.errors.full_messages
-    erb :"games/new"
+    if @game.save
+      current_user.games << @game
+      redirect '/games'
+    else
+      @errors = @game.errors.full_messages
+      erb :"games/new"
+    end
   end
 end
 
